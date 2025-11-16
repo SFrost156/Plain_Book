@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Plain Book — Librería Premium Online</title>
+  <meta name="description" content="Plain Book — Librería online elegante, moderna y profesional. Explora libros importantes por categoría.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="Resources/icons/icon2.png" type="image/png" />
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="Styles/index.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="main-header shadow-sm">
+  <div class="container d-flex align-items-center justify-content-between py-2">
+
+    <!-- Logo + Nombre -->
+    <div class="d-flex align-items-center gap-3">
+      <img src="Resources/icons/plainbook_logo.png" alt="Logo Plain Book" class="logo-circle">
+      <div>
+        <h1 class="brand-title m-0">PLAIN <span>BOOK</span></h1>
+        <p class="tagline m-0">Biblioteca online · elegante · profesional</p>
+      </div>
+    </div>
+
+    <!-- Buscador desktop -->
+    <div class="search-area d-none d-lg-flex flex-fill justify-content-center">
+      <div class="search-wrapper w-75">
+        <input id="searchInput" class="search-input" type="search" placeholder="Título, Autor, Editorial o ISBN">
+        <button id="searchBtn" class="search-btn" aria-label="Buscar"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+
+    <!-- Iconos -->
+    <div class="d-flex align-items-center gap-3">
+      <button class="icon-btn" title="Favoritos"><i class="fa-regular fa-heart"></i></button>
+
+      <button class="icon-btn position-relative" title="Carrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+
+      <button class="icon-btn" title="Mi cuenta"><i class="fa-regular fa-user"></i></button>
+    </div>
+  </div>
+
+  <!-- Buscador móvil -->
+  <div class="container d-lg-none mt-2 pb-2">
+    <div class="d-flex">
+      <input id="searchInputMobile" class="form-control" type="search" placeholder="Título, Autor, Editorial">
+      <button id="searchBtnMobile" class="btn search-btn ms-2">Buscar</button>
+    </div>
+  </div>
+</header>
+
+<!-- SUBMENÚ -->
+<nav class="submenu border-top border-bottom bg-light">
+  <div class="container d-flex gap-3 small py-2">
+    <button class="btn btn-sm btn-outline-secondary" id="menuToggle">
+      <i class="fa fa-bars"></i> MENÚ
+    </button>
+
+    <a href="#" class="submenu-link">Recomendados</a>
+    <a href="#" class="submenu-link">Más vendidos</a>
+    <a href="#" class="submenu-link">Importados</a>
+    <a href="#" class="submenu-link">Opiniones</a>
+  </div>
+</nav>
+
+<!-- LAYOUT PRINCIPAL -->
+<div class="container my-4">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <aside class="col-lg-3 mb-4">
+      <div class="sidebar-card">
+        <h5 class="sidebar-title">Categorías</h5>
+        <ul id="categoryList" class="category-list mt-3" role="listbox" aria-label="Categorías"></ul>
+      </div>
+    </aside>
+
+    <!-- Libros -->
+    <main class="col-lg-9">
+
+      <!-- Cabecera categoría -->
+      <div id="currentCategoryHeader" class="mb-3"></div>
+
+      <!-- Grid -->
+      <div id="booksGrid" class="row g-3" aria-live="polite"></div>
+    </main>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer bg-white border-top py-4 mt-5">
+  <div class="container text-center text-muted small">
+    © <span id="year"></span> Plain Book · Todos los derechos reservados
+  </div>
+</footer>
+
+<!-- FontAwesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+<!-- Script -->
+<script src="Controller/index.js"></script>
+
+<script>document.getElementById('year').innerText = new Date().getFullYear();</script>
+</body>
+</html>
