@@ -1,0 +1,126 @@
+/* ---------------------
+   VARIABLES
+--------------------- */
+:root{
+  --morado: #5A0FC8;
+  --celeste: #24C2F0;
+  --azulclaro: #6DD6FF;
+  --text: #111827;
+  --muted: #6b7280;
+  --surface: #f7faff;
+  --card-bg: #ffffff;
+  --shadow: 0 6px 24px rgba(0,0,0,0.10);
+  --placeholder: #e9eef6;
+}
+
+/* RESET & BASE */
+*{ box-sizing: border-box; }
+body{
+  margin:0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: "Libre Baskerville", serif;
+  scroll-behavior: smooth;
+}
+img{ user-select:none; display:block; }
+
+/* HEADER */
+.main-header{
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.logo-circle{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow: 0 6px 18px rgba(90,15,200,0.06);
+  border: 2px solid rgba(90,15,200,0.06);
+}
+.brand-title{
+  font-size:30px;
+  font-family:"Ribeye";
+  letter-spacing: .5px;
+  background: linear-gradient(90deg, var(--celeste), var(--azulclaro), var(--morado));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.tagline{ font-size:12px; color:var(--muted); }
+
+/* SEARCH BAR */
+.search-wrapper{ display:flex; width:100%; max-width:560px; }
+.search-input{
+  padding:.7rem 1rem;
+  border-radius:30px 0 0 30px;
+  border:1px solid rgba(0,0,0,0.12);
+  border-right:none;
+  background:white;
+  transition:.18s;
+}
+.search-input:focus{ outline:none; border-color: var(--morado); }
+.search-btn{
+  padding:.7rem 1.1rem;
+  border-radius:0 30px 30px 0;
+  background: var(--morado);
+  border:none; color:white; font-weight:600;
+}
+.search-btn:hover{ background:#4909a7; }
+
+/* ICONOS */
+.icon-btn{ background:none; border:none; font-size:1.2rem; color:var(--morado); cursor:pointer; transition:.16s; }
+.icon-btn:hover{ transform:scale(1.05); }
+.cart-count{
+  position:absolute; top:-6px; right:-6px;
+  background:var(--celeste); color:white; font-size:11px; padding:2px 6px; border-radius:50%;
+}
+
+/* SIDEBAR */
+.sidebar-card{
+  background:white; border-radius:12px; padding:1.2rem; box-shadow: var(--shadow);
+}
+.sidebar-title{ font-weight:700; color:var(--morado); margin-bottom:8px; }
+.category-list{ padding:0; margin:0; list-style:none; }
+.category-list li{
+  padding:.55rem .6rem; cursor:pointer; border-radius:8px; transition:.18s; font-size:.95rem;
+  display:flex; align-items:center; gap:.6rem;
+}
+.category-list li:hover{ background:rgba(90,15,200,0.06); padding-left:14px; }
+.category-list li.active{
+  background: linear-gradient(90deg, rgba(36,194,240,0.12), rgba(90,15,200,0.06));
+  border-left: 4px solid var(--morado);
+  font-weight:700;
+}
+
+/* LIBROS */
+.category-name{
+  font-family:"Ribeye"; font-size:28px; color:var(--morado); padding-bottom:6px;
+}
+.book-card{
+  background:white; border-radius:14px; padding:12px; border:1px solid rgba(0,0,0,0.06);
+  transition: transform .22s ease, box-shadow .22s ease; height:100%;
+}
+.book-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(12,12,30,0.08); }
+
+.book-cover{
+  width:100%; height:280px; border-radius:10px; object-fit:cover; background:var(--placeholder);
+}
+
+/* META */
+.book-meta{ margin-top:12px; display:flex; flex-direction:column; gap:6px; min-height:120px; }
+.book-title{
+  font-weight:700; color:var(--morado);
+  font-size:1rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.book-author{ font-size:.92rem; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+.book-info-row{ font-size:.88rem; color:var(--muted); display:flex; gap:8px; flex-wrap:wrap; }
+
+/* PRECIOS */
+.price-row{ display:flex; align-items:center; gap:10px; margin-top:8px; }
+.price-now{ color:var(--celeste); font-weight:800; font-size:1.05rem; }
+.price-old{ color:#bdbdbd; text-decoration:line-through; font-size:.92rem; }
+
+/* RESPONSIVE */
+@media(max-width:992px){ .book-cover{ height:240px; } }
+@media(max-width:576px){ .book-cover{ height:200px; } .brand-title{ font-size:22px; } }
